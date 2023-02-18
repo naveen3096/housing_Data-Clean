@@ -161,14 +161,14 @@ where uniqueid in (select uniqueid
 -- other method
 delete from housing
 where uniqueid in	(select  parcelid,
-							propertyaddress,
-							saleprice,
-							saledate,
-							legalreference,
-							max(uniqueid)
-					from housing
-					group by parcelid,propertyaddress,saleprice,saledate,legalreference
-					having count(*) > 1)
+				propertyaddress,
+				saleprice,
+				saledate,
+				legalreference,
+				max(uniqueid)
+			from housing
+			group by parcelid,propertyaddress,saleprice,saledate,legalreference
+			having count(*) > 1)
 
 
 select *
